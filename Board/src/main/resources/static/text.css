@@ -1,0 +1,106 @@
+/* 전체 페이지 스타일 */
+body {
+	font-family: 'Arial', sans-serif;
+	background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
+	color: #333;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* 중앙 컨테이너 스타일 */
+.center-container {
+	width: 80%;
+	max-width: 600px;
+	background: #ffffff;
+	border-radius: 15px;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 30px;
+	text-align: center;
+}
+
+/* 제목 스타일 */
+h1 {
+	font-size: 2rem;
+	color: #4a90e2;
+	margin-bottom: 20px;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 질문 내용 스타일 */
+.question-content {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	margin-bottom: 30px;
+	color: #555;
+}
+
+/* 폼 스타일 */
+form {
+	margin-top: 20px;
+}
+
+textarea {
+	width: 90%;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 10px;
+	font-size: 1rem;
+	resize: none;
+	box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+	transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+	border-color: #4a90e2;
+	outline: none;
+	box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* 버튼 스타일 */
+input[type="submit"] {
+	background-color: #4a90e2;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1rem;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+	background-color: #357abd;
+	transform: scale(1.05);
+}
+
+input[type="submit"]:active {
+	background-color: #2d5e91;
+}
+
+/* 답변 목록 스타일 */
+ul {
+	list-style-type: none; /* 기본 점 스타일 제거 */
+	padding: 0; /* 패딩 제거 */
+	margin: 20px 0; /* 위아래 여백 추가 */
+}
+
+li {
+	background: #f9f9f9; /* 밝은 배경색 */
+	border: 1px solid #ddd; /* 얇은 테두리 */
+	border-radius: 8px; /* 둥근 모서리 */
+	padding: 15px; /* 내부 여백 */
+	margin-bottom: 10px; /* 항목 간 간격 */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+	font-size: 1rem; /* 글씨 크기 */
+	color: #333; /* 글씨 색상 */
+}
+
+li:hover {
+	background: #eaf3ff; /* 마우스를 올릴 때 배경색 */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* 마우스를 올릴 때 그림자 */
+	transition: all 0.3s ease; /* 부드러운 애니메이션 */
+}

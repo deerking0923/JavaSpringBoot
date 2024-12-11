@@ -27,7 +27,7 @@ class BoardApplicationTests {
     private AnswerRepository answerRepository;
     
     @Test
-    @Transactional
+    //@Transactional
     void contextLoads() {
     	/*
         Question q1 = new Question();
@@ -90,15 +90,15 @@ class BoardApplicationTests {
     	System.out.println("삭제 후 게시판 개수 : " + this.questionRepository.count());
     	*/
     	/*
-    	Optional<Question> oq = this.questionRepository.findById(3);
+    	Optional<Question> oq = this.questionRepository.findById(6);
     	Question q = oq.get();
     	
     	Answer a = new Answer();
-    	a.setContent("방어랑 고등회가 맛도리였다면서요 ^^");
+    	a.setContent("그치만 오늘은 아침에 참치상추비빔밥을 먹었고요, 점심은 쉐이크랑 두부유부초밥 먹을거예요");
     	a.setQuestion(q);
     	a.setCreateDate(LocalDateTime.now());
-    	this.answerRepository.save(a);*/
-    	
+    	this.answerRepository.save(a);
+    	/*
     	Optional<Question> oq = this.questionRepository.findById(3);
     	Question q = oq.get();
     	List<Answer> answerList = q.getAnswerList();
@@ -106,7 +106,7 @@ class BoardApplicationTests {
     	System.out.println(answerList.get(1).getContent());
     	//System.out.println(answerList.get(0).getId());
     	//System.out.println(answerList.get(0).getCreateDate());
-    	
+    	*/
     	
     }
 }
