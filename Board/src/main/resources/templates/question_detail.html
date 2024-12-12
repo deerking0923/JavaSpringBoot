@@ -17,19 +17,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>답변 페이지</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/text.css}"> <!-- CSS 파일 링크 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+	<!--<link rel="stylesheet" type="text/css" th:href="@{/text.css}">-->
 </head>
 <body>
 
 	<div class="center-container">
+		<!--질문-->
 		<h1 th:text="${question.subject}"></h1>
 		<div class="question-content" th:text="${question.content}"></div>
+		
+		<!--답변 개수 표시-->
 		<h5 th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
+		
+		<!--답변 반복 시작-->
 		<div>
 			<ul>
 				<li th:each="answer : ${question.answerList}" th:text="${answer.content}"></li>
 			</ul>
 		</div>
+		<!--답변 반복 끝-->
+		
+		<!--답변 작성-->
 		<form th:action="@{|/answer/create/${question.id}|}" method="post">
 			<textarea name="content" id="content" rows="5" cols="40" placeholder="여기에 답변을 입력하세요."></textarea>
 			<br>

@@ -4,94 +4,30 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>질문 목록</title>
-	<style>
-		/* 전체 페이지 스타일 */
-		body {
-			font-family: 'Arial', sans-serif;
-			background: linear-gradient(to bottom, #f7f9fc, #eaeef3);
-			color: #333;
-			margin: 0;
-			padding: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-		}
-
-		/* 테이블 스타일 */
-		table {
-			width: 80%;
-			max-width: 800px;
-			border-collapse: collapse;
-			margin: 20px auto;
-			background: #ffffff;
-			border-radius: 10px;
-			overflow: hidden;
-			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-		}
-
-		thead {
-			background-color: #4a90e2;
-			color: white;
-		}
-
-		th, td {
-			padding: 15px;
-			text-align: center;
-			border-bottom: 1px solid #ddd;
-		}
-
-		td a {
-			color: #4a90e2;
-			text-decoration: none;
-			transition: color 0.3s ease;
-		}
-
-		td a:hover {
-			color: #357abd;
-			text-decoration: underline;
-		}
-
-		tr:nth-child(even) {
-			background-color: #f7f9fc;
-		}
-
-		tbody tr:hover {
-			background-color: #eaf3ff;
-		}
-
-		tbody tr:last-child td {
-			border-bottom: none;
-		}
-
-		/* 테이블 제목 (선택적 스타일) */
-		table caption {
-			font-size: 1.5rem;
-			font-weight: bold;
-			margin: 10px 0;
-			color: #4a90e2;
-		}
-	</style>
+<!--	<link rel="stylesheet" type="text/css" th:href="@{/text_question_list.css}">-->
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}"> <!-- CSS 파일 링크 -->
 </head>
 <body>
 	<center>
-		<table>
+		<div class="container my-3">
+		<table class="table">
 			<caption>질문 목록</caption>
-			<thead>
+			<thead class="table-dark">
 				<tr>
+					<td>번호</td>
 					<td>제목</td>
 					<td>작성일자</td>
-					<td>번호</td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="question, index : ${questionList}">
+				<tr th:each="question, loop : ${questionList}">
+					<td th:text="${question.id}"></td> <!--${loop.count} -->
 					<td><a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a></td>
-					<td th:text="${question.createDate}"></td>
-					<td th:text="${question.id}"></td>
+					<td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
 				</tr>
 			</tbody>
 		</table>
+		</div>
 	</center>
 </body>
 </html>
