@@ -55,11 +55,16 @@
 		</div>
 		<!--답변 반복 끝-->
 		
-		
-		
+
+	
 		<!--답변 작성-->
-		<form th:action="@{|/answer/create/${question.id}|}" method="post">
-			<textarea class ="form-control" name="content" id="content" rows="5" cols="40" placeholder="여기에 답변을 입력하세요."></textarea>
+		<form class="my-3" th:action="@{|/answer/create/${question.id}|}" method="post" th:object="${answerForm}">
+			<!--<div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+						<div th:each="err:${#fields.allErrors()}" th:text="${err}"></div>
+				</div>
+			-->
+			<div th:replace="~{form_errors::formErrorsFragment}"></div>
+			<textarea class ="form-control" th:field="*{content}" rows="5" cols="40" placeholder="여기에 답변을 입력하세요."></textarea>
 			<br>
 			<br>
 			<input class = "btn btn-primary" type="submit" value="답변등록">
