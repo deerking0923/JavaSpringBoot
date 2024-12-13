@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" layout:decorate="~{layout}">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>질문 목록</title>
 <!--	<link rel="stylesheet" type="text/css" th:href="@{/text_question_list.css}">-->
-	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}"> <!-- CSS 파일 링크 -->
+	<!--<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">--> <!-- CSS 파일 링크 -->
 </head>
 <body>
 	<center>
-		<div class="container my-3">
+		<div layout:fragment="content" class="container my-3">
 		<table class="table">
 			<caption>질문 목록</caption>
 			<thead class="table-dark">
@@ -27,6 +27,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
 		</div>
 	</center>
 </body>
