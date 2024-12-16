@@ -16,6 +16,7 @@ import com.springboot.biz.answer.Answer;
 import com.springboot.biz.answer.AnswerRepository;
 import com.springboot.biz.question.Question;
 import com.springboot.biz.question.QuestionRepository;
+import com.springboot.biz.question.QuestionService;
 
 @SpringBootTest
 class BoardApplicationTests {
@@ -26,9 +27,17 @@ class BoardApplicationTests {
     @Autowired
     private AnswerRepository answerRepository;
     
+    @Autowired
+    private QuestionService questionService;
+    
     @Test
-    //@Transactional
+    @Transactional
     void contextLoads() {
+    	/*for(int i = 0; i<=300;i++) {
+    		String sub = String.format("테스트데이터입니다[%03d]", i);
+    		String con = "내용없음";
+    		this.questionService.create(sub, con);
+    	}*/
     	/*
         Question q1 = new Question();
         q1.setSubject("스카이");
