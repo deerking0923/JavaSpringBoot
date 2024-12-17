@@ -19,8 +19,10 @@
 					<td>작성일자</td>
 				</tr>
 			</thead>
+			
+			
 			<tbody>
-				<tr th:each="question, loop : ${questionList}">
+				<tr th:each="question, loop : ${paging}">
 					<td th:text="${question.id}"></td> <!--${loop.count} -->
 					<td><a th:href="@{|/question/detail/${question.id}|}"
 						 th:text="${question.subject}"></a></td>
