@@ -28,8 +28,8 @@ public class SecurityConfig {
          (authorizeHttpRequests) -> authorizeHttpRequests
              // AntPathRequestMatcher를 사용해 특정 경로에 대한 접근 권한을 설정합니다.
              // requestMatchers("/**")는 모든 경로에 대해 접근을 허용합니다.
-             .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
-     );
+             .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
+     		.formLogin((formLogin)->formLogin.loginPage("/user/login").defaultSuccessUrl("/"));
 
      // 설정이 완료된 HttpSecurity 객체를 필터 체인으로 반환합니다.
      return http.build();
