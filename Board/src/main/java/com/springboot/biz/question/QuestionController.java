@@ -1,5 +1,6 @@
 package com.springboot.biz.question;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.biz.answer.AnswerForm;
+import com.springboot.biz.user.SiteUser;
+import com.springboot.biz.user.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,18 +25,19 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor //매개변수가 있는 생성자. 그래서 임플리먼츠 안하고 private final 변수를 사용가능함. 
 public class QuestionController { //서비스 함수를 가져다가 화면에 보여주는 역할
 	private final QuestionService questionService; //생성자를 만들면서 매개변수로 가져와서 이 클래스의 함수를 사용가능하게 됨.
-	
+	private final UserService userService;
 	@GetMapping("/create")
 	public String questionCreate(QuestionForm questionForm) {
 		return "question_form";
 	}
 	
 	@PostMapping("/create")
-	public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+	public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult, Principal principal) {
 		if(bindingResult.hasErrors()) {
 			return "question_form";
 		}
-		this.questionService.create(questionForm.getSubject(), questionForm.getContent());
+		SiteUser siteUser = this.userService.getUser(principal.getName());
+		this.questionService.create(questionForm.getSubject(), questionForm.getContent(), siteUser);
 		return "redirect:/question/list";
 	}
 

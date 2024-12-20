@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.springboot.biz.answer.Answer;
+import com.springboot.biz.user.SiteUser;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,6 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,4 +44,7 @@ public class Question {
     // cascade = CascadeType.REMOVE: 질문이 삭제되면 연관된 답변들도 함께 삭제
     private List<Answer> answerList; 
     // 질문에 달린 답변들을 저장하는 리스트
+    
+    @ManyToOne
+    private SiteUser author;
 }

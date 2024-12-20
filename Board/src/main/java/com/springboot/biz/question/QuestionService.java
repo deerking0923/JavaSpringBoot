@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.springboot.biz.DataNotFoundException;
+import com.springboot.biz.user.SiteUser;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,11 +21,12 @@ import lombok.RequiredArgsConstructor;
 public class QuestionService { //INSERT, SELECT, UPDATE, DELETE 등의 역할
 	private final QuestionRepository questionRepository;
 	
-	public void create(String subject, String content) {
+	public void create(String subject, String content, SiteUser user) {
 		Question q = new Question();
 		q.setSubject(subject);
 		q.setContent(content);
 		q.setCreateDate(LocalDateTime.now());
+		q.setAuthor(user);
 		this.questionRepository.save(q);
 	}
 	
