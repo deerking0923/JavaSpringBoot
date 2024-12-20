@@ -45,6 +45,7 @@ public class QuestionController { //서비스 함수를 가져다가 화면에 �
 		return "redirect:/question/list";
 	}
 
+
 	
 	/*
 	 * @GetMapping("/list") //컨트롤러에는 이런 요청이 들어왔을때 어떤 작업을 할지가 들어간다. 겟매핑처럼.. public

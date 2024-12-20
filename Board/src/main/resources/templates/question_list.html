@@ -13,9 +13,10 @@
 		<table class="table">
 			<caption>질문 목록</caption>
 			<thead class="table-dark">
-				<tr>
+				<tr class="text-center">
 					<td>번호</td>
-					<td>제목</td>
+					<td style="width:50%">제목</tdstyle>
+					<td>작성자</td>
 					<td>작성일자</td>
 				</tr>
 			</thead>
@@ -30,6 +31,7 @@
 							th:text="${#lists.size(question.answerList)}"></span>
 						
 					 </td>
+					 <td><span th:if="${question.author != null}" th:text="${question.author.username}"></span></td>
 					<td th:text=
 					"${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
 				</tr>
