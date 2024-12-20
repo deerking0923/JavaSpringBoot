@@ -64,7 +64,11 @@
 				</div>
 			-->
 			<div th:replace="~{form_errors::formErrorsFragment}"></div>
-			<textarea class ="form-control" th:field="*{content}" rows="5" cols="40" placeholder="여기에 답변을 입력하세요."></textarea>
+			
+			
+			<textarea sec:authorize="isAnonymous()" disabled class ="form-control" th:field="*{content}" rows="5" cols="40" placeholder="여기에 답변을 입력하세요."></textarea>
+			<textarea sec:authorize="isAuthenticated()" disabled class ="form-control" th:field="*{content}" rows="5" cols="40" placeholder="여기에 답변을 입력하세요."></textarea>
+						
 			<br>
 			<br>
 			<input class = "btn btn-primary" type="submit" value="답변등록">
