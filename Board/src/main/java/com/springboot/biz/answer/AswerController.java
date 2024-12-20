@@ -2,6 +2,7 @@ package com.springboot.biz.answer;
 
 import java.security.Principal;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,6 +35,7 @@ public class AswerController {
 	 * String.format("redirect:/question/detail/%s", id); }
 	 */
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/create/{id}")
 	public String createAnswer(Model model, @PathVariable("id") Integer id, @Valid AnswerForm answerForm,
 			BindingResult bindingResult, Principal principal) {
