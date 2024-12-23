@@ -47,4 +47,7 @@ public class Question {
     
     @ManyToOne
     private SiteUser author;
+    
+    //수정 시간
+    private LocalDateTime modifyDate;
 }

@@ -21,6 +21,14 @@ import lombok.RequiredArgsConstructor;
 public class QuestionService { //INSERT, SELECT, UPDATE, DELETE 등의 역할
 	private final QuestionRepository questionRepository;
 	
+	
+	public void modify(Question question,String subject, String content) {
+		question.setSubject(subject);
+		question.setContent(content);
+		question.setModifyDate(LocalDateTime.now());
+		this.questionRepository.save(question);
+	}
+	
 	public void create(String string, String content, SiteUser user) {
 		Question q = new Question();
 		q.setSubject(string);
