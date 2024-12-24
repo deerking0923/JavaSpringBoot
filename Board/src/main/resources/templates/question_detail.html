@@ -42,8 +42,8 @@
 					sec:authorize="isAuthenticated()"
 					th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
 					th:text ="수정"></a>
-					
-					<a href="javascript:void(0);"
+					<!--그냥 아무 의미없이 자바스크립트로 넘겨줄거야. 일단 URL이 바뀌면 안되니까..!-->
+					<a href="javascript:void(0);" 
 					th:data-uri="@{|/question/delete/${question.id}|}" class="delete btn btn-sm btn-outline-secondary"
 					sec:authorize="isAuthenticated()"
 					th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
