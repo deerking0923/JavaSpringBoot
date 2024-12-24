@@ -30,7 +30,7 @@ public class QuestionController { //서비스 함수를 가져다가 화면에 �
 	private final QuestionService questionService; //생성자를 만들면서 매개변수로 가져와서 이 클래스의 함수를 사용가능하게 됨.
 	private final UserService userService;
 	
-/*
+
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/delete/{id}")
 	public String questionDelete(@PathVariable("id") Integer id, Principal principal) {
@@ -42,7 +42,7 @@ public class QuestionController { //서비스 함수를 가져다가 화면에 �
 		return "redirect:/";
 	}
 	
-	*/
+	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/modify/{id}")
 	public String questionModify(QuestionForm questionForm, @PathVariable("id") Integer id, Principal principal) {
