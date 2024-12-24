@@ -38,7 +38,7 @@ public class AswerController {
 	 * this.answerService.create(question, content); return
 	 * String.format("redirect:/question/detail/%s", id); }
 	 */
-	
+	//답변 삭제
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/delete/{id}")
 	public String answerDelete(@PathVariable("id") Integer id, Principal principal) {
