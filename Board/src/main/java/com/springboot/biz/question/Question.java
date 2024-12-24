@@ -2,6 +2,7 @@ package com.springboot.biz.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import com.springboot.biz.answer.Answer;
 import com.springboot.biz.user.SiteUser;
@@ -12,6 +13,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -50,4 +52,8 @@ public class Question {
     
     //수정 시간
     private LocalDateTime modifyDate;
+    
+    //다대다 테이블은 컬럼을 여러개 표시할 수 없어서 별도의 voter테이블을 만들어준다.
+    @ManyToMany
+    Set<SiteUser> voter;
 }
