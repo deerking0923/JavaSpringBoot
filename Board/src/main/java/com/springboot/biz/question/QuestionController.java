@@ -30,6 +30,14 @@ public class QuestionController { //서비스 함수를 가져다가 화면에 �
 	private final QuestionService questionService; //생성자를 만들면서 매개변수로 가져와서 이 클래스의 함수를 사용가능하게 됨.
 	private final UserService userService;
 	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/vote/{id}")
+	public String questionVote(@PathVariable("id") Integer id, Principal principal) {
+		Question question = this.questionService.getQuestion(id);
+		SiteUser siteUser = this.userService.getUser(principal.getName());
+		this.questionService.vote(question, siteUser);
+		return String.format("redirect:/question/detail/%s", id);
+	}
 
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/delete/{id}")

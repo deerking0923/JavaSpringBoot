@@ -48,7 +48,7 @@
 					th:data-uri="@{|/question/vote/${question.id}|}"
 					class="recommend btn btn-sm btn-outline-secondary"
 					sec:authorize="isAuthenticated()"
-					>추천<span class="badge rounded-pill bg-success" th:text="10"></span></a>
+					>추천<span class="badge rounded-pill bg-success" th:text="${#lists.size(question.voter)}"></span></a>
 					
 					<!--수정-->
 					<a th:href="@{|/question/modify/${question.id}|}" class="btn btn-sm btn-outline-secondary"
@@ -88,10 +88,10 @@
 				<div class="my-3">
 					<!--추천-->
 					<a href="javascript:void(0);" 
-					th:data-uri="@{|/answer/vote/${question.id}|}"
+					th:data-uri="@{|/answer/vote/${answer.id}|}"
 					class="recommend btn btn-sm btn-outline-secondary"
 					sec:authorize="isAuthenticated()"
-					>추천<span class="badge rounded-pill bg-success" th:text="10"></span></a>
+					>추천<span class="badge rounded-pill bg-success" th:text="${#lists.size(answer.voter)}"></span></a>
 
 					<!--삭제-->
 					<a th:href="@{|/answer/modify/${answer.id}|}" class="btn btn-sm btn-outline-secondary"
