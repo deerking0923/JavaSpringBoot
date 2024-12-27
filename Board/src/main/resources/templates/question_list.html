@@ -22,8 +22,8 @@
 				</div>
 			</div>
 			<form th:action="@{/question/list}" method="get" id="searchForm">
-				<input type="text" id="kw" name="kw" th:value="${kw}">
-				<input type="text" id="page" name="page" th:value="${paging.number}">
+				<input type="hidden" id="kw" name="kw" th:value="${kw}">
+				<input type="hidden" id="page" name="page" th:value="${paging.number}">
 			</form>
 	
 			
