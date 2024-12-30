@@ -32,7 +32,7 @@
 			<thead class="table-dark">
 				<tr class="text-center">
 					<td>번호</td>
-					<td style="width:50%">제목</tdstyle>
+					<td style="width:50%">제목</td>
 					<td>작성자</td>
 					<td>작성일자</td>
 				</tr>
@@ -48,7 +48,8 @@
 							th:text="${#lists.size(question.answerList)}"></span>
 						
 					 </td>
-					 <td><span th:if="${question.author != null}" th:text="${question.author.username}"></span></td>
+					 <td><span th:if="${question.author != null}"
+						 th:text="${question.author.username}"></span></td>
 					<td th:text=
 					"${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
 				</tr>

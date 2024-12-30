@@ -43,15 +43,23 @@ public class SecurityConfig {
      return http.build();
  }
  
- @Bean
- PasswordEncoder passwordEncoder() {
-	 return new BCryptPasswordEncoder();
- }
- 
- @Bean
- AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
-	 return authenticationConfiguration.getAuthenticationManager();
- }
- 
+//@Bean 어노테이션은 Spring 컨텍스트에서 해당 메서드의 반환값을 Bean으로 등록합니다.
+@Bean
+//PasswordEncoder Bean을 정의합니다. 
+//Spring Security에서 비밀번호를 암호화할 때 사용하는 BCryptPasswordEncoder를 반환합니다.
+//BCrypt는 암호화된 비밀번호를 안전하게 저장하고 검증하는 데 널리 사용되는 알고리즘입니다.
+PasswordEncoder passwordEncoder() {
+  return new BCryptPasswordEncoder();
+}
+
+@Bean
+//AuthenticationManager Bean을 정의합니다.
+//Spring Security의 인증 메커니즘을 관리하는 AuthenticationManager를 반환합니다.
+//AuthenticationConfiguration 객체를 통해 기존의 Security 설정을 기반으로 AuthenticationManager를 가져옵니다.
+//이 메서드는 사용자 인증 요청을 처리하기 위한 핵심 컴포넌트를 생성합니다.
+AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+  return authenticationConfiguration.getAuthenticationManager();
+}
+
 
 }
